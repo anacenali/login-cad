@@ -46,8 +46,10 @@ function salvarUser(){
 }
 
 
-// Função para criar uma lista de usuários
+// Define a função 'criaLista', que atualiza uma tabela HTML com os dados da lista
 function criaLista(){
+
+// Inicializa a variável 'tabela' com o HTML da tabela, incluindo os cabeçalhos
     let tabela = document.getElementById('tabela').innerHTML = "<tr><th>Nome Usuário.</th><th>Ações.</th></tr>"; 
     for(let i=0;i <= (dadosLista.length -1);i++){
         tabela += "<tr><td>" + dadosLista[i] + "</td><td><button type='button' onclick='editar(parentNode.parentNode.rowIndex)'>Editar</button><button type='button' onclick='excluir(parentNode.parentNode.rowIndex)'>Excluir</button></td></tr>"; 
