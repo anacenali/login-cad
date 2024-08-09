@@ -63,14 +63,21 @@ function criaLista(){
  
 }
  
-//Função para editar os nomes das listas.
+// Define a função 'editar' que é chamada para editar um item da lista
 function editar(i){
+
+// Retorna uma referência ao primeiro objeto com o valor especificado do atributo ID.
+// 'i - 1' é usado para ajustar o índice, enquanto a função pode receber um índice baseado em 1
     document.getElementById('nomeUser').value = dadosLista[(i - 1)];
+
+//  função splice é usada para remover um item da lista.
     dadosLista.splice(dadosLista[(i - 1)], 1)   
 }
  
-// Função para excluir o nome da lista.
+// A função 'excluir' é chamada para remover um item da lista e da tabela
 function excluir(i){
+
+// Remove o item da lista 'dadosLista' na posição 'i - 1'
     dadosLista.splice((i - 1), 1); 
     document.getElementById('tabela').deleteRow(i);
 }
