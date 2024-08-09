@@ -17,12 +17,16 @@ function acessar(){
 }
 
  
-// Função para armazenar os nomes em ARRAY
+//  cria uma lista onde será armazenado os nomes de usuários inseridos.
 var dadosLista = []; 
  
+// Esta função é responsável por pegar o valor inserido pelo usuário, adicionar esse valor à lista e atualizar.
 function salvarUser(){
+
+// obtém o valor atual do campo de entrada com o ID 'nomeUser'. O valor é armazenado na variável nomeUser.
     let nomeUser = document.getElementById('nomeUser').value;
  
+// verifica se nomeUser não é uma string vazia. Se o campo estiver preenchido, o código dentro do bloco if é executado.    
     if(nomeUser){
         dadosLista.push(nomeUser);
         //console.log(dadosLista);  
@@ -32,6 +36,8 @@ function salvarUser(){
         alert("Favor, informe um nome para cadastro.");
     }
 }
+
+
 // Função para criar uma lista de usuários
 function criaLista(){
     let tabela = document.getElementById('tabela').innerHTML = "<tr><th>Nome Usuário.</th><th>Ações.</th></tr>"; 
