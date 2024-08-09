@@ -44,3 +44,8 @@ Este projeto feito durante as aulas de Programação Web I, é uma aplicação b
 * O nome será removido da lista e da tabela HTML.
 
 ## Imagens do site 
+![](Site.png)
+
+![](IMG2.png)
+
+![](Frase.png)
