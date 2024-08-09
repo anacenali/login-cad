@@ -28,10 +28,18 @@ function salvarUser(){
  
 // verifica se nomeUser não é uma string vazia. Se o campo estiver preenchido, o código dentro do bloco if é executado.    
     if(nomeUser){
+
+// adiciona o nome fornecido à lista dadosLista.
         dadosLista.push(nomeUser);
         //console.log(dadosLista);  
+        
+// chama a função criaLista, que atualiza a exibição da lista na página.
         criaLista();
+
+// limpa o campo de entrada após o nome ter sido adicionado à lista.
         document.getElementById('nomeUser').value = ""; 
+
+// Se o campo não for preenchido, um alerta aparece para o usuário. 
     }else{
         alert("Favor, informe um nome para cadastro.");
     }
