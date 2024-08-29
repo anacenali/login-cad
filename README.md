@@ -1,47 +1,66 @@
 # Login Cad 🖥
 
 ## 📄 Descrição
-Este projeto feito durante as aulas de Programação Web I, é uma aplicação básica em JavaScript que gerencia um sistema de login e uma lista de usuários. Ele permite que os usuários se autentiquem e que gerenciem uma lista de nomes, com funcionalidades para adicionar, editar e excluir itens da lista.
+Este projeto feito durante as aulas de Programação Web I, é um exemplo simples de um sistema de gerenciamento de usuários utilizando HTML e JavaScript. Ele permite adicionar, editar e excluir registros de usuários, com um sistema básico de validação de formulário.
 
 ## Funcionalidades
 
-### 1. Autenticação de Usuário
+* Login: Valida se os campos de email e senha estão preenchidos e redireciona para uma página de cadastro se estiverem.
+* Cadastro de Usuários: Adiciona novos usuários à lista e atualiza a tabela exibida na página.
+* Edição de Usuários: Permite editar os detalhes de um usuário selecionado.
+* Exclusão de Usuários: Remove um usuário da lista e atualiza a tabela.
 
-* Função acessar(): Verifica se o email e a senha foram preenchidos antes de redirecionar o usuário para a página de cadastro.
+## Estrutura do Código
+O código é composto por três funções principais:
 
-### 2. Gerenciamento de Lista de Usuários
+### 1 - acessar()
 
-* Função salvarUser(): Adiciona um novo nome à lista dadosLista e atualiza a tabela HTML. Se o campo de entrada estiver vazio, exibe um alerta.
-* Função criaLista(): Cria e atualiza a tabela HTML com os nomes armazenados em dadosLista. Inclui botões para editar e excluir itens.
-* Função editar(i): Permite editar um nome na lista. Preenche o campo de entrada com o nome selecionado e remove o item da lista.
-* Função excluir(i): Remove um item da lista e a linha correspondente da tabela HTML.
+* Descrição: Valida se os campos de email e senha estão preenchidos. Se ambos estiverem preenchidos, redireciona o usuário para a página cadastro.html. Caso contrário, exibe um alerta solicitando o preenchimento dos campos.
 
-## Instruções de Uso
+* Uso: Esta função deve ser chamada ao enviar o formulário de login.
 
-### 1. Autenticação
+### 2 - salvarUser()
 
-#### Para autenticar um usuário:
+* Descrição: Coleta o nome e e-mail inseridos pelo usuário e adiciona um novo objeto à lista dadosLista. Atualiza a tabela exibida e limpa os campos de entrada. Se algum campo estiver vazio, exibe um alerta.
 
-* Preencha o campo de email (loginEmail) e o campo de senha (loginSenha).
-* Clique no botão de acesso.
-* Se ambos os campos estiverem preenchidos, você será redirecionado para a página cadastro.html. Caso contrário, um alerta pedirá que você preencha todos os campos.
+* Uso: Esta função deve ser chamada ao enviar o formulário de cadastro de usuário.
 
-### 2. Gerenciamento da Lista de Usuários
+### 3 - criaLista()
 
-#### Adicionar Usuário
+* Descrição: Atualiza a tabela HTML com os dados contidos em dadosLista. Adiciona uma linha para cada usuário, incluindo opções para editar e excluir.
+* Uso: Esta função é chamada após adicionar, editar ou excluir um usuário para garantir que a tabela seja atualizada com os dados mais recentes.
 
-* Digite um nome no campo de entrada (nomeUser).
-* Clique no botão para salvar o usuário.
-* O nome será adicionado à lista e exibido na tabela. O campo de entrada será limpo.
+### 4 - editar(i)
 
-#### Editar Usuário
-* Clique no botão "Editar" ao lado do nome que deseja editar.
-* O nome será preenchido no campo de entrada (nomeUser), e o item será removido da lista.
-* Modifique o nome e salve-o novamente se desejar.
+* Descrição: Preenche os campos de entrada com os dados do usuário selecionado para edição. Remove o usuário da lista e atualiza a tabela.
+Parâmetro: i - O índice do usuário na lista dadosLista.
+* Uso: Esta função é chamada ao clicar no botão "Editar" de um usuário na tabela.
 
-#### Excluir Usuário
-* Clique no botão "Excluir" ao lado do nome que deseja remover.
-* O nome será removido da lista e da tabela HTML.
+### 5 - excluir(i)
+
+* Descrição: Remove o usuário da lista dadosLista e atualiza a tabela.
+Parâmetro: i - O índice do usuário na lista dadosLista.
+* Uso: Esta função é chamada ao clicar no botão "Excluir" de um usuário na tabela.
+
+## Como Usar
+
+#### 1 - Interação com o Formulário de Login
+
+* Insira um email e uma senha válidos no formulário de login e clique em "Entrar" para ser redirecionado para a página de cadastro.
+
+#### 2 - Cadastro de Usuários
+
+* Preencha os campos de nome e e-mail no formulário de cadastro e clique em "Salvar". O novo usuário será adicionado à lista exibida na tabela.
+
+#### 3 - Edição e Exclusão de Usuários
+
+* 1 - Use os botões "Editar" e "Excluir" ao lado de cada usuário na tabela para modificar ou remover o registro.
+Exemplos
+Para um exemplo funcional, veja a estrutura básica de HTML e a integração com o código JavaScript:
+
+## html
+
+
 
 ## Imagens do site 
 ![](Site.png)
