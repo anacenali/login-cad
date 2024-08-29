@@ -1,22 +1,23 @@
 // Função acessar define uma função, que é responsável por validar o preenchimento dos campos de login e realizar uma ação com base nessa validação.
 function acessar() {
 
-    // loginEmail e loginSenha são variáveis que armazenam os valores dos campos de entrada de email e senha, respectivamente. A função document.getElementById().value é usada para pegar o valor atual desses campos de entrada no HTML.
+// loginEmail e loginSenha são variáveis que armazenam os valores dos campos de entrada de email e senha, respectivamente. A função document.getElementById().value é usada para pegar o valor atual desses campos de entrada no HTML.
     let loginEmail = document.getElementById('loginEmail').value;
     let loginSenha = document.getElementById('loginSenha').value;
 
-    // A instrução verifica se qualquer um dos campos está vazio. 
-    // O operador || é um operador lógico "OU", o que significa que se qualquer campo estiver vazio, a condição geral será verdadeira.
+// A instrução verifica se qualquer um dos campos está vazio. 
+// O operador || é um operador lógico "OU", o que significa que se qualquer campo estiver vazio, a condição geral será verdadeira.
     if (document.forms[0].loginEmail.value == "" || document.forms[0].loginEmail.value.indexOf('@') == -1 ||
         document.forms[0].loginEmail.value.indexOf('.') == -1) {
         alert("Por favor, informe um E-mail válido."); return false;
         } 
 
+// Se a condição do if estiver vazio, um alerta é exibido ao usuário, pedindo para preencher todos os campos.
     if (!loginSenha) {
-        alert("Favor preencher todos os campos.")  // Se a condição do if estiver vazio, um alerta é exibido ao usuário, pedindo para preencher todos os campos.
+        alert("Favor preencher todos os campos.")  
 
     } else {
-        // alert("Campos preenchidos com sucesso!");    Linha criada para teste.
+// alert("Campos preenchidos com sucesso!");    Linha criada para teste.
         window.location.href = 'cadastro.html';
     }
 }
@@ -41,8 +42,9 @@ function salvarUser() {
 // Verificar se o E-mail é valido.
     if (validarEmail(nomeE)) {
 
-//Adiciona um novo objeto à lista dadosLista. 
-//Este objeto contém as informações do usuário com as propriedades nome e email.
+// push está adicionando um novo objeto ao final do array dadosLista. 
+// push modifica o array dadosLista diretamente, adicionando o novo objeto à sua estrutura.
+// Depois de adicionar o novo elemento, push retorna o comprimento atualizado do array.
         dadosLista.push({ nome: nomeUser, email: nomeE });
 
 // Chama a função criaLista() para atualizar a tabela HTML com os dados mais recentes da lista.
@@ -97,7 +99,7 @@ function editar(i) {
     document.getElementById('nomeE').value = dadosLista[i].email;
 
 //Remove o item da lista dadosLista na posição i. 
-//O método splice modifica a lista original, removendo o item especificado.
+//splice é uma ferramenta essencial para manipulação dinâmica de arrays, permitindo remoção, adição e substituição de elementos de forma flexível.
     dadosLista.splice(i, 1); 
 
 //Atualiza a tabela HTML para refletir a remoção do usuário e quaisquer edições feitas.
