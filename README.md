@@ -3,14 +3,14 @@
 ## 📄 Descrição
 Este projeto feito durante as aulas de Programação Web I, é um exemplo simples de um sistema de gerenciamento de usuários utilizando HTML e JavaScript. Ele permite adicionar, editar e excluir registros de usuários, com um sistema básico de validação de formulário.
 
-## Funcionalidades
+## 🔗 Funcionalidades
 
 * Login: Valida se os campos de email e senha estão preenchidos e redireciona para uma página de cadastro se estiverem.
 * Cadastro de Usuários: Adiciona novos usuários à lista e atualiza a tabela exibida na página.
 * Edição de Usuários: Permite editar os detalhes de um usuário selecionado.
 * Exclusão de Usuários: Remove um usuário da lista e atualiza a tabela.
 
-## Estrutura do Código
+## 📈 Estrutura do Código
 O código é composto por três funções principais:
 
 ### 1 - acessar()
@@ -42,7 +42,7 @@ Parâmetro: i - O índice do usuário na lista dadosLista.
 Parâmetro: i - O índice do usuário na lista dadosLista.
 * Uso: Esta função é chamada ao clicar no botão "Excluir" de um usuário na tabela.
 
-## Como Usar
+## 🧮 Como Usar
 
 #### 1 - Interação com o Formulário de Login
 
@@ -58,11 +58,11 @@ Parâmetro: i - O índice do usuário na lista dadosLista.
 Exemplos
 Para um exemplo funcional, veja a estrutura básica de HTML e a integração com o código JavaScript:
 
-## html
+## 📁 html
 
 ![](HTML29.08.png)
 
-## Imagens do site 
+## 📍 Imagens do site 
 
 ![](login.29.08.png)
 
