@@ -63,8 +63,9 @@ Para um exemplo funcional, veja a estrutura básica de HTML e a integração com
 ![](HTML29.08.png)
 
 ## Imagens do site 
-![](Site.png)
 
-![](IMG2.png)
+![](login.29.08.png)
 
-![](Frase.png)
+![](cadastro.29.08.png)
+
+![](cadastrado.29.08.png)
