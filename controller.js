@@ -7,7 +7,12 @@ function acessar() {
 
     // A instrução verifica se qualquer um dos campos está vazio. 
     // O operador || é um operador lógico "OU", o que significa que se qualquer campo estiver vazio, a condição geral será verdadeira.
-    if (!loginEmail || !loginSenha) {
+    if (document.forms[0].loginEmail.value == "" || document.forms[0].loginEmail.value.indexOf('@') == -1 ||
+        document.forms[0].loginEmail.value.indexOf('.') == -1) {
+        alert("Por favor, informe um E-mail válido."); return false;
+        } 
+
+    if (!loginSenha) {
         alert("Favor preencher todos os campos.")  // Se a condição do if estiver vazio, um alerta é exibido ao usuário, pedindo para preencher todos os campos.
 
     } else {
