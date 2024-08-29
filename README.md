@@ -68,4 +68,6 @@ Para um exemplo funcional, veja a estrutura básica de HTML e a integração com
 
 ![](cadastro.29.08.png)
 
+![](Frase.e-mail.png)
+
 ![](cadastrado.29.08.png)
