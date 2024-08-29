@@ -1,83 +1,90 @@
 // Função acessar define uma função, que é responsável por validar o preenchimento dos campos de login e realizar uma ação com base nessa validação.
-function acessar(){
+function acessar() {
 
-// loginEmail e loginSenha são variáveis que armazenam os valores dos campos de entrada de email e senha, respectivamente. A função document.getElementById().value é usada para pegar o valor atual desses campos de entrada no HTML.
+    // loginEmail e loginSenha são variáveis que armazenam os valores dos campos de entrada de email e senha, respectivamente. A função document.getElementById().value é usada para pegar o valor atual desses campos de entrada no HTML.
     let loginEmail = document.getElementById('loginEmail').value;
     let loginSenha = document.getElementById('loginSenha').value;
- 
-// A instrução verifica se qualquer um dos campos está vazio. 
-// O operador || é um operador lógico "OU", o que significa que se qualquer campo estiver vazio, a condição geral será verdadeira.
-    if(!loginEmail || !loginSenha){
+
+    // A instrução verifica se qualquer um dos campos está vazio. 
+    // O operador || é um operador lógico "OU", o que significa que se qualquer campo estiver vazio, a condição geral será verdadeira.
+    if (!loginEmail || !loginSenha) {
         alert("Favor preencher todos os campos.")  // Se a condição do if estiver vazio, um alerta é exibido ao usuário, pedindo para preencher todos os campos.
-       
-    }else{
+
+    } else {
         // alert("Campos preenchidos com sucesso!");    Linha criada para teste.
         window.location.href = 'cadastro.html';
     }
 }
 
- 
-//  cria uma lista onde será armazenado os nomes de usuários inseridos.
-var dadosLista = []; 
- 
+
+//  cria uma lista onde será armazenado os nomes e E-mail de usuários inseridos.
+var dadosLista = [];
+
 // Esta função é responsável por pegar o valor inserido pelo usuário, adicionar esse valor à lista e atualizar.
-function salvarUser(){
+function salvarUser() {
 
-// obtém o valor atual do campo de entrada com o ID 'nomeUser'. O valor é armazenado na variável nomeUser.
+    // obtém o valor atual do campo de entrada com o ID 'nomeUser'. O valor é armazenado na variável nomeUser.
     let nomeUser = document.getElementById('nomeUser').value;
- 
-// verifica se nomeUser não é uma string vazia. Se o campo estiver preenchido, o código dentro do bloco if é executado.    
-    if(nomeUser){
+    let nomeE = document.getElementById('nomeE').value;
 
-// adiciona o nome fornecido à lista dadosLista.
-        dadosLista.push(nomeUser);
+    // verifica se nomeUser não é uma string vazia. Se o campo estiver preenchido, o código dentro do bloco if é executado.    
+    if (nomeUser && nomeE) {
+
+        // adiciona o nome fornecido à lista dadosLista.
+        dadosLista.push({ nome: nomeUser, email: nomeE });
         //console.log(dadosLista);  
-        
-// chama a função criaLista, que atualiza a exibição da lista na página.
+
+        // chama a função criaLista, que atualiza a exibição da lista na página.
         criaLista();
 
-// limpa o campo de entrada após o nome ter sido adicionado à lista.
-        document.getElementById('nomeUser').value = ""; 
+        // limpa o campo de entrada após o nome ter sido adicionado à lista.
+        document.getElementById('nomeUser').value = "";
+        document.getElementById('nomeE').value = "";
 
-// Se o campo não for preenchido, um alerta aparece para o usuário. 
-    }else{
-        alert("Favor, informe um nome para cadastro.");
+        // Se o campo não for preenchido, um alerta aparece para o usuário. 
+    } else {
+        alert("Favor, informe um nome e um E-mail para cadastro.");
     }
 }
 
 
-function criaLista(){
+function criaLista() {
 
-// Inicializa a variável 'tabela' com o HTML da tabela, incluindo os cabeçalhos
-    let tabela = document.getElementById('tabela').innerHTML = "<tr><th>Nome Usuário.</th><th>Ações.</th></tr>"; 
-    
-// O conjunto for repete sobre os itens na lista.
-    for(let i=0;i <= (dadosLista.length -1);i++){
+    // Inicializa a variável 'tabela' com o HTML da tabela, incluindo os cabeçalhos
+    let tabela = "<tr><th>Nome Usuário</th><th>E-mail</th><th>Ações</th></tr>";
 
-// Adiciona uma nova linha à variável 'tabela' para cada item na lista
-// Inclui o nome do usuário e dois botões: 'Editar' e 'Excluir'
-        tabela += "<tr><td>" + dadosLista[i] + "</td><td><button type='button' onclick='editar(parentNode.parentNode.rowIndex)'>Editar</button><button type='button' onclick='excluir(parentNode.parentNode.rowIndex)'>Excluir</button></td></tr>"; 
-              
-        document.getElementById('tabela').innerHTML = tabela;
+
+    // O conjunto for repete sobre os itens na lista.
+    for (let i = 0; i < dadosLista.length; i++) {
+
+
+        // Adiciona uma nova linha à variável 'tabela' para cada item na lista
+        // Inclui o nome do usuário e dois botões: 'Editar' e 'Excluir'
+        tabela += `<tr><td>${dadosLista[i].nome}</td><td>${dadosLista[i].email}</td><td><button type='button' onclick='editar(${i})'>Editar</button><button type='button' onclick='excluir(${i})'>Excluir</button></td></tr>`;
+
     }
- 
+    document.getElementById('tabela').innerHTML = tabela;
+
 }
- 
+
 // Define a função 'editar' que é chamada para editar um item da lista
-function editar(i){
+function editar(i) {
 
-// Retorna uma referência ao primeiro objeto com o valor especificado do atributo ID.
-// 'i - 1' é usado para ajustar o índice, enquanto a função pode receber um índice baseado em 1
-    document.getElementById('nomeUser').value = dadosLista[(i - 1)];
+    // Retorna uma referência ao primeiro objeto com o valor especificado do atributo ID.
+    // 'i - 1' é usado para ajustar o índice, enquanto a função pode receber um índice baseado em 1
+    document.getElementById('nomeUser').value = dadosLista[i].nome;
+    document.getElementById('nomeE').value = dadosLista[i].email;
 
-//  função splice é usada para remover um item da lista.
-    dadosLista.splice(dadosLista[(i - 1)], 1)   
+    //  função splice é usada para remover um item da lista.
+    dadosLista.splice(i, 1); // Remove o item da lista
+    criaLista(); // Atualiza a lista na tabela
+
 }
- 
-// A função 'excluir' é chamada para remover um item da lista e da tabela
-function excluir(i){
 
-// Remove o item da lista 'dadosLista' na posição 'i - 1'
-    dadosLista.splice((i - 1), 1); 
+// A função 'excluir' é chamada para remover um item da lista e da tabela
+function excluir(i) {
+
+    // Remove o item da lista 'dadosLista' na posição 'i - 1'
+    dadosLista.splice(i, 1); // Remove o item da lista
     document.getElementById('tabela').deleteRow(i);
 }
