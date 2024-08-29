@@ -38,6 +38,9 @@ function salvarUser() {
 //(ou seja, não null, undefined, ou uma string vazia).
     if (nomeUser && nomeE) {
 
+// Verificar se o E-mail é valido.
+    if (validarEmail(nomeE)) {
+
 //Adiciona um novo objeto à lista dadosLista. 
 //Este objeto contém as informações do usuário com as propriedades nome e email.
         dadosLista.push({ nome: nomeUser, email: nomeE });
@@ -48,11 +51,23 @@ function salvarUser() {
 // Limpa os campos de entrada após adicionar o usuário.
         document.getElementById('nomeUser').value = "";
         document.getElementById('nomeE').value = "";
-
+ 
+    } else {
+            // Se o e-mail não for válido, exibe um alerta.
+            alert("Favor informar um E-mail válido.");
+        }
+   
 // Se um dos campos estiver vazio, exibe um alerta solicitando que o nome e o e-mail sejam preenchidos.
     } else {
         alert("Favor, informe um nome e um E-mail para cadastro.");
     }
+}
+// Função para validar o formato do e-mail.
+function validarEmail(email) {
+
+    // Expressão regular para validar o formato básico de um e-mail.
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
 }
 
 //Esta função atualiza a tabela HTML com os dados da lista dadosLista.
