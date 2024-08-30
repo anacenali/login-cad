@@ -55,8 +55,6 @@ Parâmetro: i - O índice do usuário na lista dadosLista.
 #### 3 - Edição e Exclusão de Usuários
 
 * 1 - Use os botões "Editar" e "Excluir" ao lado de cada usuário na tabela para modificar ou remover o registro.
-Exemplos
-Para um exemplo funcional, veja a estrutura básica de HTML e a integração com o código JavaScript:
 
 ## 📁 html
 
